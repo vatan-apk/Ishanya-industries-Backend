@@ -3,11 +3,10 @@ import dotenv from "dotenv";
 dotenv.config();
 import Contact from "../models/Contact.js";
 import nodemailer from "nodemailer";
-console.log(process.env.EMAIL_USER);
-console.log(process.env.EMAIL_PASS);
+
 const transporter = nodemailer.createTransport({
   service: "gmail",
-
+  port:587,
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS
@@ -29,7 +28,6 @@ router.post("/", async (req, res) => {
     } = req.body;
 
 
-    // Required Validation
     if (!name || !email || !message) {
       return res.status(400).json({
         success: false,
@@ -38,7 +36,6 @@ router.post("/", async (req, res) => {
     }
 
 
-    // Length Validation
     if (message.length > 1000) {
       return res.status(400).json({
         success: false,
@@ -47,7 +44,6 @@ router.post("/", async (req, res) => {
     }
 
 
-    // Email Validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailRegex.test(email)) {
@@ -58,7 +54,6 @@ router.post("/", async (req, res) => {
     }
 
 
-    // Save Clean Data Only
     await Contact.create({
       name,
       phone,
