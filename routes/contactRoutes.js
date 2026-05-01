@@ -62,111 +62,111 @@ router.post("/", async (req, res) => {
       message
     });
 
-// await transporter.sendMail({
-//   from: `"Company Website" <${process.env.EMAIL_USER}>`,
+await transporter.sendMail({
+  from: `"Company Website" <${process.env.EMAIL_USER}>`,
 
-//   to: process.env.EMAIL_USER,
+  to: process.env.EMAIL_USER,
 
-//   replyTo: email,
+  replyTo: email,
 
-// subject: `New Business Client | ${name}`,
-//   html: `
-//     <div style="
-//       font-family: Arial, sans-serif;
-//       background-color: #f4f4f4;
-//       padding: 30px;
-//     ">
+subject: `New Business Client | ${name}`,
+  html: `
+    <div style="
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 30px;
+    ">
 
-//       <div style="
-//         max-width: 600px;
-//         margin: auto;
-//         background: white;
-//         border-radius: 12px;
-//         padding: 30px;
-//         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-//       ">
+      <div style="
+        max-width: 600px;
+        margin: auto;
+        background: white;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      ">
 
-//         <h1 style="
-//           color: #111827;
-//           margin-bottom: 10px;
-//         ">
-//           📩 New Contact Request
-//         </h1>
+        <h1 style="
+          color: #111827;
+          margin-bottom: 10px;
+        ">
+          📩 New Contact Request
+        </h1>
 
-//         <p style="
-//           color: #6b7280;
-//           margin-bottom: 30px;
-//         ">
-//           A new inquiry has been submitted through your company website.
-//         </p>
+        <p style="
+          color: #6b7280;
+          margin-bottom: 30px;
+        ">
+          A new inquiry has been submitted through your company website.
+        </p>
 
-//         <table style="
-//           width: 100%;
-//           border-collapse: collapse;
-//         ">
+        <table style="
+          width: 100%;
+          border-collapse: collapse;
+        ">
 
-//           <tr>
-//             <td style="padding: 12px; font-weight: bold;">Name</td>
-//             <td style="padding: 12px;">${name}</td>
-//           </tr>
+          <tr>
+            <td style="padding: 12px; font-weight: bold;">Name</td>
+            <td style="padding: 12px;">${name}</td>
+          </tr>
 
-//           <tr style="background-color:#f9fafb;">
-//             <td style="padding: 12px; font-weight: bold;">Phone</td>
-//             <td style="padding: 12px;">${phone || "Not Provided"}</td>
-//           </tr>
+          <tr style="background-color:#f9fafb;">
+            <td style="padding: 12px; font-weight: bold;">Phone</td>
+            <td style="padding: 12px;">${phone || "Not Provided"}</td>
+          </tr>
 
-//           <tr>
-//             <td style="padding: 12px; font-weight: bold;">Email</td>
-//             <td style="padding: 12px;">${email}</td>
-//           </tr>
+          <tr>
+            <td style="padding: 12px; font-weight: bold;">Email</td>
+            <td style="padding: 12px;">${email}</td>
+          </tr>
 
-//           <tr style="background-color:#f9fafb;">
-//             <td style="padding: 12px; font-weight: bold;">Company</td>
-//             <td style="padding: 12px;">
-//               ${company || "Not Provided"}
-//             </td>
-//           </tr>
+          <tr style="background-color:#f9fafb;">
+            <td style="padding: 12px; font-weight: bold;">Company</td>
+            <td style="padding: 12px;">
+              ${company || "Not Provided"}
+            </td>
+          </tr>
 
-//         </table>
+        </table>
 
-//         <div style="
-//           margin-top: 30px;
-//           padding: 20px;
-//           background-color: #f9fafb;
-//           border-left: 4px solid #111827;
-//           border-radius: 8px;
-//         ">
+        <div style="
+          margin-top: 30px;
+          padding: 20px;
+          background-color: #f9fafb;
+          border-left: 4px solid #111827;
+          border-radius: 8px;
+        ">
 
-//           <p style="
-//             margin: 0 0 10px 0;
-//             font-weight: bold;
-//           ">
-//             Message
-//           </p>
+          <p style="
+            margin: 0 0 10px 0;
+            font-weight: bold;
+          ">
+            Message
+          </p>
 
-//           <p style="
-//             margin: 0;
-//             color: #374151;
-//             line-height: 1.6;
-//           ">
-//             ${message}
-//           </p>
+          <p style="
+            margin: 0;
+            color: #374151;
+            line-height: 1.6;
+          ">
+            ${message}
+          </p>
 
-//         </div>
+        </div>
 
-//         <p style="
-//           margin-top: 30px;
-//           font-size: 13px;
-//           color: #9ca3af;
-//           text-align: center;
-//         ">
-//           This email was automatically generated from your website contact form.
-//         </p>
+        <p style="
+          margin-top: 30px;
+          font-size: 13px;
+          color: #9ca3af;
+          text-align: center;
+        ">
+          This email was automatically generated from your website contact form.
+        </p>
 
-//       </div>
-//     </div>
-//   `
-// });
+      </div>
+    </div>
+  `
+});
 
     res.status(201).json({
       success: true,
